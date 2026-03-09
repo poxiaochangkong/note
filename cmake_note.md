@@ -10,8 +10,10 @@ cmake功能:跨平台生成Makefile
 
 ```
 cmake构建流程:
-
+(linux)
 项目->CMakeLists.txt->cmake->Makefile
+(windows)
+项目->CMakeLists.txt->cmake->.sln,.vcxproj等文件
 ```
 
 ## cmake使用
@@ -58,4 +60,7 @@ cmake dir #CMakeLists.txt所在目录
 cmake会在当前执行的目录下生成构建文件，建议在构建目录执行cmake命令
 
 make #根据cmake生成的makefile编译，在构建目录执行，或者说，在makefile所在的目录执行
+懒人命令 cmake --build . #在构建目录执行，或者说，在makefile所在的目录执行，无论windows还是linux都适用
 ```
+
+**vscode的cmake tools如果指定了编译器/kit，将会自动注入kit自带的vcpkg，忽略环境变量vcpkg或者settings.json的toolchian,可以通过选择未指定,让settings.json的toolchain生效,或者按照官方文档设置对应的一个.json文件避免问题**
